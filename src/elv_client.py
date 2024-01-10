@@ -3,12 +3,11 @@ import requests
 from typing import Any, Dict
 from typing import List
 
-from src import utils
-from src.eth_client import EthClient
+from .utils import get
 
 class ElvClient():
     def __init__(self, config_url: str, static_token: str):
-        config = utils.get(config_url)
+        config = get(config_url)
         self.fabricURIs = config["network"]["services"]["fabric_api"]
         self.searchURIs = config["network"]["services"]["search_v2"]
         self.ethereumURIs = config["network"]["services"]["ethereum_api"]
